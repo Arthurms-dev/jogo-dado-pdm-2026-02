@@ -3,7 +3,6 @@ import { useState } from "react";
 import Dado from "./components/Dado";
 
 export default function Index() {
-  
   const [rodada, setRodada] = useState(1);
   const [placar, setPlacar] = useState({ j1: 0, j2: 0 });
   const [turno, setTurno] = useState('J1');
@@ -11,7 +10,7 @@ export default function Index() {
   const [dadoJ2, setDadoJ2] = useState([0, 0]);
   const [resultadoRodada, setResultadoRodada] = useState("");
 
-    const jogadorUm = () => {
+  const jogadorUm = () => {
     const d1 = Math.floor(Math.random() * 6) + 1;
     const d2 = Math.floor(Math.random() * 6) + 1;
     setDadoJ1([d1, d2]);
@@ -20,7 +19,7 @@ export default function Index() {
     setTurno('J2');
   };
 
-    const jogadorDois = () => {
+  const jogadorDois = () => {
     const d1 = Math.floor(Math.random() * 6) + 1;
     const d2 = Math.floor(Math.random() * 6) + 1;
     setDadoJ2([d1, d2]);
@@ -28,7 +27,7 @@ export default function Index() {
     const somaJ1 = dadoJ1[0] + dadoJ1[1]; 
     const somaJ2 = d1 + d2;
 
-        let novoPlacar = { ...placar };
+    let novoPlacar = { ...placar };
     if (somaJ1 > somaJ2) {
       novoPlacar.j1++;
       setResultadoRodada("Jogador 1 venceu a rodada!");
@@ -41,7 +40,7 @@ export default function Index() {
     
     setPlacar(novoPlacar);
 
-      if (rodada === 5) {
+    if (rodada === 5) {
       setTurno('FIM');
     } else {
       setTurno('ESPERA'); 
@@ -52,7 +51,7 @@ export default function Index() {
     }
   };
 
-    const reiniciarJogo = () => {
+  const reiniciarJogo = () => {
     setRodada(1);
     setTurno('J1');
     setPlacar({ j1: 0, j2: 0 });
@@ -61,14 +60,14 @@ export default function Index() {
     setResultadoRodada("");
   };
 
-    const getVencedorGeral = () => {
+  const getVencedorGeral = () => {
     if (placar.j1 > placar.j2) return "Vencedor: Jogador 1!!";
-    if (placar.j2 > placar.j1) return "Vencedor : Jogador 2!!";
+    if (placar.j2 > placar.j1) return "Vencedor: Jogador 2!!";
     return "Empate!!";
   };
 
   return (
-      <View style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.title}>Batalha de Dados</Text>
       <Text style={styles.roundText}>Rodada: {rodada} de 5</Text>
       
@@ -109,7 +108,7 @@ export default function Index() {
 
           <View style={styles.somaJ2Container}>
             <Text style={styles.somaJ2Text}>
-              {dadoJ1[0] + dadoJ1[1] > 0 ? `Soma: ${dadoJ1[0] + dadoJ1[1]}` : "---"}
+              {dadoJ2[0] + dadoJ2[1] > 0 ? `Soma: ${dadoJ2[0] + dadoJ2[1]}` : "---"}
             </Text>
           </View>
 
