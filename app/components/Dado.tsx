@@ -38,16 +38,18 @@ const styles = StyleSheet.create({
   },
   placeholderContainer: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#334155', 
+    backgroundColor: '#1E293B',
     width: 50,
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
     margin: 5,
+    borderRadius: 8,
   },
   placeholderText: {
     fontSize: 18,
-    color: '#666',
+    color: '#94A3B8',
   },
   dadoImage: {
     width: 50,

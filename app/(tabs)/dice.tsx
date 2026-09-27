@@ -1,8 +1,8 @@
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { useState } from "react";
-import Dado from "./components/Dado";
+import Dado from "../components/Dado"; 
 
-export default function Index() {
+export default function DiceGame() {
   const [rodada, setRodada] = useState(1);
   const [placar, setPlacar] = useState({ j1: 0, j2: 0 });
   const [turno, setTurno] = useState('J1');
@@ -72,7 +72,6 @@ export default function Index() {
       <Text style={styles.roundText}>Rodada: {rodada} de 5</Text>
       
       <View style={styles.playersContainer}>
-
         <View style={styles.playerCard}>
           <Text style={styles.playerTitle}>Jogador 1</Text>
           <Text style={styles.scoreText}>Placar: {placar.j1}</Text>
@@ -124,7 +123,6 @@ export default function Index() {
             <Text style={styles.buttonTextJ2}>Jogar J2</Text>
           </TouchableOpacity>
         </View>
-
       </View>
 
       <View style={styles.footerContainer}>
@@ -154,17 +152,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#0F172A', 
   },
   title: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: 'bold',
     marginBottom: 5,
+    color: '#F8FAFC',
   },
   roundText: {
     fontSize: 16,
     marginBottom: 20,
-    color: '#555',
+    color: '#94A3B8',
   },
   playersContainer: {
     flexDirection: 'row',
@@ -174,27 +173,35 @@ const styles = StyleSheet.create({
   },
   playerCard: {
     borderWidth: 1,
-    borderColor: '#000',
-    padding: 10,
+    borderColor: '#334155',
+    backgroundColor: '#1E293B',
+    padding: 15,
     alignItems: 'center',
-    borderRadius: 5,
-    minWidth: 120,
+    borderRadius: 12,
+    minWidth: 140,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
   playerTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
+    color: '#F8FAFC',
   },
   scoreText: {
     fontSize: 14,
     marginBottom: 10,
+    color: '#CBD5E1',
   },
   somaJ1Container: {
     marginTop: 10,
   },
   somaJ1Text: {
     fontWeight: 'bold',
-    color: '#2563eb',
+    color: '#38BDF8', 
     fontSize: 18,
   },
   somaJ2Container: {
@@ -202,56 +209,63 @@ const styles = StyleSheet.create({
   },
   somaJ2Text: {
     fontWeight: 'bold',
-    color: 'red',
+    color: '#F43F5E', 
     fontSize: 18,
   },
   buttonBase: {
     marginTop: 20,
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderWidth: 1,
-    borderRadius: 4,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderWidth: 1.5,
+    borderRadius: 8,
     alignItems: 'center',
+    width: '100%',
   },
   buttonJ1: {
-    backgroundColor: 'transparent',
-    borderColor: '#3b82f6',
+    backgroundColor: 'rgba(56, 189, 248, 0.1)',
+    borderColor: '#38BDF8',
   },
   buttonTextJ1: {
-    color: '#1d4ed8',
-    fontWeight: '600',
+    color: '#38BDF8',
+    fontWeight: 'bold',
   },
   buttonJ2: {
-    backgroundColor: 'transparent',
-    borderColor: '#ef4444',
+    backgroundColor: 'rgba(244, 63, 94, 0.1)',
+    borderColor: '#F43F5E',
   },
   buttonTextJ2: {
-    color: '#b91c1c',
-    fontWeight: '600',
+    color: '#F43F5E',
+    fontWeight: 'bold',
   },
   buttonReset: {
-    backgroundColor: 'transparent',
-    borderColor: '#000',
+    backgroundColor: '#FF7F50', 
+    borderColor: '#FF7F50',
+    paddingHorizontal: 30,
   },
   buttonTextReset: {
-    color: '#000',
-    fontWeight: '600',
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
   disabledButton: {
-    opacity: 0.5,
+    opacity: 0.3,
   },
   footerContainer: {
     marginTop: 20,
     alignItems: 'center',
+    height: 60, 
+    justifyContent: 'center',
   },
   winnerText: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 15,
     textAlign: 'center',
+    color: '#FF7F50',
   },
   roundResultText: {
-    fontWeight: 'bold',
-    fontSize: 16,
+    fontWeight: '500',
+    fontSize: 18,
+    color: '#F8FAFC',
   },
 });
